@@ -34,9 +34,16 @@ resource "aws_instance" "jenkins" {
     aws_iam_role_policy_attachment.amazon_eks_cni_policy_general,
     aws_iam_role_policy_attachment.amazon_ec2_container_registry_read_only,
   ]
-  
-
+  provisioner "local-exec" {
+    command = "echo '[default]' > ../ansible/inventory"
+  } 
+  provisioner "local-exec" {
+    command = "echo '${self.public_ip}' >> ../ansible/inventory"
+  }
 }
+
+
+
 
 resource "aws_network_interface_sg_attachment" "jenkins_sg_attachment" {
   security_group_id    = aws_security_group.allow_ssh_8080.id

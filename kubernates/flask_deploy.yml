@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapi-deployment
+  namespace: ingress-nginx
+  labels:
+    app: flaskapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskapi
+  template:
+    metadata:
+      labels:
+        app: flaskapi
+    spec:
+      containers:
+        - name: flaskapi
+          image: 422097883691.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest
+          ports:
+            - containerPort: 5002
+          envFrom:
+          - configMapRef:
+                name: flaskapi-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+  namespace: ingress-nginx
+spec:
+  selector:
+    app: app
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5002
+
+

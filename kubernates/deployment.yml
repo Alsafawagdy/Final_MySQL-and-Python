@@ -21,7 +21,5 @@ spec:
         envFrom:
           - configMapRef:
              name: mysql-configmap
-               #- secretRef:
-            #name: mysql-secret
         ports:
         - containerPort: 5002

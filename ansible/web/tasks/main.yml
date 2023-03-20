@@ -1,5 +1,5 @@
 ---
-*****************install Docker ********************
+#****************install Docker ********************
 
 - name: Install aptitude
   apt:
@@ -177,3 +177,7 @@
     name: kubectl
     state: present
     force: yes
+
+- name: Print to password
+  debug:
+    msg: "the initial password = {{command_output.stdout}}"

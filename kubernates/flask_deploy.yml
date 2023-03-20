@@ -1,42 +1,83 @@
----
+# # ---
+# # apiVersion: apps/v1
+# # kind: Deployment
+# # metadata:
+# #   name: flaskapi-deployment
+# #   namespace: ingress-nginx
+# #   labels:
+# #     app: flaskapi
+# # spec:
+# #   replicas: 1
+# #   selector:
+# #     matchLabels:
+# #       app: flaskapi
+# #   template:
+# #     metadata:
+# #       labels:
+# #         app: flaskapi
+# #     spec:
+# #       containers:
+# #         - name: flaskapi
+# #           image: 422097883691.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest
+# #           ports:
+# #             - containerPort: 5002
+# #           envFrom:
+# #             - configMapRef:
+# #                 name: flaskapi-config
+            
+
+# # ---
+# # apiVersion: v1
+# # kind: Service
+# # metadata:
+# #   name: flask-service
+# #   namespace: ingress-nginx
+# # spec:
+# #   ports:
+# #   - port: 80
+# #     protocol: TCP
+# #     targetPort: 5002
+# #   selector:
+# #     app: flaskapi
+# #   type: ClusterIP
+
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: flask-service
+#   annotations:
+#     service.beta.kubernetes.io/aws-load-balancer-type: nlb
+#     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: 'true'
+# spec:
+#   ports:
+#   - port: 5002
+#     protocol: TCP
+#     targetPort: 5002
+#   selector:
+#     app: flask-app
+#   type: LoadBalancer
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flaskapi-deployment
-  namespace: ingress-nginx
+  name: flaskapp-deployment
   labels:
-    app: flaskapi
+    app: flask-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flaskapi
+      app: flask-app
   template:
     metadata:
       labels:
-        app: flaskapi
+        app: flask-app
     spec:
       containers:
-        - name: flaskapi
+        - name: flask-app
           image: 422097883691.dkr.ecr.us-east-1.amazonaws.com/flask-app:latest
           ports:
             - containerPort: 5002
           envFrom:
-          - configMapRef:
-                name: flaskapi-config
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: flask-service
-  namespace: ingress-nginx
-spec:
-  selector:
-    app: app
-  type: ClusterIP
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 5002
-
-
+            - configMapRef:
+                name: myconfigmap

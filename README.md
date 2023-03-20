@@ -60,8 +60,16 @@ Commands to run terraform:
 
 ### 4 )-	add webhook : http://18.206.236.164/:8080/github-webhook but replace by new instance ip and change Content type to application/json
  
-### 5) add new multibranch pipeline with any name you like:
+### 5) add new  pipeline with any name you like:
 
 ![image](https://user-images.githubusercontent.com/71265897/226359938-93320756-65b8-4b3e-842a-761d8edaaae9.png)
 
-![image](https://user-images.githubusercontent.com/71265897/226360299-581e2918-faec-439b-bd85-03dce771cf9e.png
+![image](https://user-images.githubusercontent.com/71265897/226360299-581e2918-faec-439b-bd85-03dce771cf9e.png)
+
+### 6) build the pipeline and open the url of load balancer
+
+
+![image](https://user-images.githubusercontent.com/71265897/226381097-0d9dcb7f-311c-4cf1-b9ba-f45764165323.png)
+
+![image](https://user-images.githubusercontent.com/71265897/226381264-169cc7a9-e00d-469c-8f9b-6f13e7524896.png)
+##### note: there is an issue with the flask app and mysql application code  and i made an effort to solve some of these problems

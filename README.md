@@ -54,8 +54,14 @@ Commands to run terraform:
 #### AWS_ACCESS_KEY_ID : AKIAWERX6SIVTK4ECGOD
 #### AWS_SECRET_ACCESS_KEY : 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
 
-![image ]("https://user-images.githubusercontent.com/71265897/226354124-a675ab7d-4960-45a8-b060-b9dbda45228f.png"width="200)
+![image](https://user-images.githubusercontent.com/71265897/226357043-8b0af7a7-6f23-4de0-957c-2a79ece98fbf.png)
 
-![image](https://user-images.githubusercontent.com/71265897/226354252-8ee81b1c-4564-4042-b1a3-a9bce6ef3aed.png)
+![image](https://user-images.githubusercontent.com/71265897/226356456-5c245410-a9f5-436d-9acf-89ef6ba89e40.png)
 
+### 4 )-	add webhook : http://18.206.236.164/:8080/github-webhook but replace by new instance ip and change Content type to application/json
  
+### 5) add new multibranch pipeline with any name you like:
+
+![image](https://user-images.githubusercontent.com/71265897/226359938-93320756-65b8-4b3e-842a-761d8edaaae9.png)
+
+![image](https://user-images.githubusercontent.com/71265897/226360299-581e2918-faec-439b-bd85-03dce771cf9e.png)

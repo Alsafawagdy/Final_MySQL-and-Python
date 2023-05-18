@@ -6,7 +6,7 @@ This app is implemented using MySQL and Python. Copied from the tutorial http://
 
 ### <font size=”15”> *Provision AWS Infrastructure using Terraform* </font>
 
-- EC@ (for jenkins)
+- EC2 (for jenkins)
 - EKS (for cluster)
 - ECR ( two repo one for application and other for database)
 
@@ -57,13 +57,11 @@ Commands to run terraform:
 
 ### 1) choose install suggested plugins:
 ### 2) add github crediential:
-#### username: Alsafawagdy
-#### Token: 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
+
 ![image](https://user-images.githubusercontent.com/71265897/226351880-e0beac02-8d9a-4d7d-b155-42d8447f4963.png)
 
 ### 3) add aws crediential as secret text:
-#### AWS_ACCESS_KEY_ID : AKIAWERX6SIVTK4ECGOD
-#### AWS_SECRET_ACCESS_KEY : 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
+
 
 ![image](https://user-images.githubusercontent.com/71265897/226357043-8b0af7a7-6f23-4de0-957c-2a79ece98fbf.png)
 
@@ -81,6 +79,3 @@ Commands to run terraform:
 
 
 ![image](https://user-images.githubusercontent.com/71265897/226381097-0d9dcb7f-311c-4cf1-b9ba-f45764165323.png)
-
-![image](https://user-images.githubusercontent.com/71265897/226381264-169cc7a9-e00d-469c-8f9b-6f13e7524896.png)
-##### note: there is an issue with the flask app and mysql application code  and i made an effort to solve some of these problems
